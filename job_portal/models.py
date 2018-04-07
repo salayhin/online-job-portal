@@ -11,6 +11,9 @@ class BusinessType(models.Model):
     added = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        self.type
+
 class Company(models.Model):
     business_type = models.ForeignKey(BusinessType, on_delete=models.CASCADE)
     business = models.TextField()
@@ -22,3 +25,6 @@ class Company(models.Model):
     year_established = models.IntegerField()
     added = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        self.type
