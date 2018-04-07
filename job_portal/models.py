@@ -12,10 +12,11 @@ class BusinessType(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        self.type
+        return self.type
 
 class Company(models.Model):
     business_type = models.ForeignKey(BusinessType, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
     business = models.TextField()
     office_address = models.CharField(max_length=200)
     contact_person = models.CharField(max_length=200)
@@ -27,4 +28,4 @@ class Company(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        self.type
+        return self.name

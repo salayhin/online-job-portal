@@ -15,6 +15,7 @@ class Migration(migrations.Migration):
             name='Company',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=200)),
                 ('business', models.TextField()),
                 ('office_address', models.CharField(max_length=200)),
                 ('contact_person', models.CharField(max_length=200)),
