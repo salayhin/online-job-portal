@@ -102,3 +102,4 @@ ENV/
 .idea
 Pipfile.lock
 
+db.sqlite3
