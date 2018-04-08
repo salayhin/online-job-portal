@@ -1,0 +1,16 @@
+<html>
+<head>
+
+    <title>Contract</title>
+</head>
+<body>
+<br>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
