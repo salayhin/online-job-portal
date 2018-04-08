@@ -55,7 +55,11 @@ ROOT_URLCONF = 'online_job_portal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
+=======
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
+>>>>>>> ff656bb0f74c0fe21a4e0e6ae2621643706d641e
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

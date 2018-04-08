@@ -30,7 +30,7 @@ class Company(models.Model):
     def __str__(self):
         return self.name
 
-<<<<<<< HEAD
+
 class Contract(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -39,7 +39,6 @@ class Contract(models.Model):
 
     def __str__(self):
         self.name
-=======
 
 class Job(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
@@ -65,4 +64,9 @@ class Job(models.Model):
 
     def __str__(self):
         return self.title
->>>>>>> 7328875c32bf7d7f6f9ac051d07ae1110e545384
+
+
+class FAQ(models.Model):
+    title=models.CharField(max_length=200)
+    description=models.TextField()
+
