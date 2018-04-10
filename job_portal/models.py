@@ -31,6 +31,15 @@ class Company(models.Model):
         return self.name
 
 
+class Contract(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.IntegerField()
+    comment = models.TextField()
+
+    def __str__(self):
+        self.name
+
 class Job(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
@@ -56,6 +65,7 @@ class Job(models.Model):
     def __str__(self):
         return self.title
 
+
 class Faq(models.Model):
     title=models.CharField(max_length=200)
     description=models.TextField()
@@ -64,6 +74,7 @@ class Faq(models.Model):
 
     def __str__(self):
         return self.title
+
 
 class Empolyee(models.Model):
     name=models.CharField(max_length=200)
@@ -100,4 +111,11 @@ class Emp_experience(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Catagory(models.Model):
+    type = models.CharField(max_length=80)
+
+    def __str__(self):
+        return self.type
 
