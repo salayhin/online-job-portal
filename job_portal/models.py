@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 from django.db import models
 from datetime import datetime
 
-# Create your models here.
 
 class BusinessType(models.Model):
     type = models.CharField(max_length=200)
@@ -13,6 +12,7 @@ class BusinessType(models.Model):
 
     def __str__(self):
         return self.type
+
 
 class Company(models.Model):
     business_type = models.ForeignKey(BusinessType, on_delete=models.CASCADE)
@@ -34,11 +34,12 @@ class Company(models.Model):
 class Contract(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    phone = models.IntegerField()
+    phone = models.CharField(max_length=100)
     comment = models.TextField()
 
     def __str__(self):
-        self.name
+        return self.name
+
 
 class Job(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
@@ -76,15 +77,20 @@ class Faq(models.Model):
         return self.title
 
 
-class Empolyee(models.Model):
+class Employee(models.Model):
     name=models.CharField(max_length=200)
-    father/husband_name=models.CharField(max_length=150)
+    fathers_name=models.CharField(max_length=150)
+    mothers_name=models.CharField(max_length=150)
+    present_address=models.TextField()
+    permanent_address=models.TextField()
+    picture=models.CharField(max_length=500)
+    gender=models.CharField(max_length=10)
     age=models.IntegerField()
-    address=models.TextField()
-    phone=models.CharField(max_length=15)
+    phone=models.CharField(max_length=25)
     email=models.CharField(max_length=150)
-    skills=models.CharField(max_length=200)
-    nationality=models.CharField()
+    nationality=models.CharField(max_length=120)
+    national_id=models.CharField(max_length=120)
+    skills=models.TextField()
     religion=models.CharField(max_length=20)
     sex=models.CharField(max_length=10)
     marital_status=models.CharField(max_length=15)
@@ -92,30 +98,34 @@ class Empolyee(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.title
+        return self.name
 
-class Emp_education(models.Model):
-    empolyee = models.ForeignKey(Empolyee, on_delete=models.CASCADE)
-    education=models.CharField(max_length=200)
+
+class EmployeeEducation(models.Model):
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    exam = models.CharField(max_length=200)
+    session = models.CharField(max_length=50)
+    passing_year = models.CharField(max_length=50)
+    result = models.CharField(max_length=120)
+    board = models.CharField(max_length=120)
+    university = models.CharField(max_length=120)
+    subject = models.CharField(max_length=250)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
 
-class Emp_experience(models.Model):
-    emp_education = models.ForeignKey(Emp_education, on_delete=models.CASCADE)
-    experience=models.CharField(max_length=200)
+
+class EmployeeExperience(models.Model):
+    emp_education = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    job_title=models.CharField(max_length=250)
+    company_name=models.CharField(max_length=250)
+    start_date=models.DateField()
+    end_date=models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.title
-
-
-class Catagory(models.Model):
-    type = models.CharField(max_length=80)
-
-    def __str__(self):
-        return self.type
+        return self.job_title
 

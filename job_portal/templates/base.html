@@ -1,33 +1,41 @@
 {% load staticfiles %}
 <html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" type='text/css'>
-    {% block head %}
-
-    <title>Base</title>
-
-    {% endblock %}
-
+    <title>Online Job Site</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
+
+
 <div class="container">
-    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Social Network</a>
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" class="active"><a href="/">Home</a></li>
+                <li role="presentation"><a href="/about">About</a></li>
+                <li role="presentation"><a href="/faq">FAQ</a></li>
+                <li role="presentation"><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Job Site</h3>
     </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="account/register"> Register</a></li>
-    </ul>
-  </div>
-</nav>
-</div> <!-- /container -->
 
-    {% block body %}
 
-    {% endblock %}
+
+    <div class="row marketing">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2018 Company</p>
+    </footer>
+
+</div>
 </body>
 </html>

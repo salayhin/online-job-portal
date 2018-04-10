@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <h1>Job Site</h1>
+        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus
+            commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn btn-success" href="#" role="button">Sign up today</a></p>
+    </div>
+
+    {% for business in business_types %}
+
+        <div class="col-lg-6">
+            <h4><a href="{% url 'companies' business.id %}">{{ business.type }}</a></h4>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}

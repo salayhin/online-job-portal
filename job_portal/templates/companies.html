@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for company in companies %}
+        <div class="col-lg-6">
+            <p><a href="{% url 'company_jobs' company.id %}">{{ company.name }}</a></p>
+            <p>{{ company.business }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,7 +1,10 @@
-<html>
-<title>Faq</title>
-<body>
-<p>Title</p>
-<p>description</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for data in faq %}
+        <div class="col-lg-6">
+            <p>{{ data.title }}</p>
+            <p>{{ data.description }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
