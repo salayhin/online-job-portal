@@ -56,6 +56,48 @@ class Job(models.Model):
     def __str__(self):
         return self.title
 
-class FAQ(models.Model):
+class Faq(models.Model):
     title=models.CharField(max_length=200)
     description=models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+class Empolyee(models.Model):
+    name=models.CharField(max_length=200)
+    father/husband_name=models.CharField(max_length=150)
+    age=models.IntegerField()
+    address=models.TextField()
+    phone=models.CharField(max_length=15)
+    email=models.CharField(max_length=150)
+    skills=models.CharField(max_length=200)
+    nationality=models.CharField()
+    religion=models.CharField(max_length=20)
+    sex=models.CharField(max_length=10)
+    marital_status=models.CharField(max_length=15)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+class Emp_education(models.Model):
+    empolyee = models.ForeignKey(Empolyee, on_delete=models.CASCADE)
+    education=models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+class Emp_experience(models.Model):
+    emp_education = models.ForeignKey(Emp_education, on_delete=models.CASCADE)
+    experience=models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
