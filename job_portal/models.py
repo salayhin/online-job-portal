@@ -69,4 +69,14 @@ class Job(models.Model):
 class FAQ(models.Model):
     title=models.CharField(max_length=200)
     description=models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.title
+
+class Catagory(models.Model):
+    type = models.CharField(max_length=80)
+
+    def __str__(self):
+        return self.type
