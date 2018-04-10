@@ -11,3 +11,7 @@ urlpatterns = [
     path('companies/<id>/', views.companies, name='companies'),
     path('company_jobs/<id>/', views.company_jobs, name='company_jobs'),
 ]
+
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]
