@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.shortcuts import render, get_object_or_404
-
+from django.utils import timezone
 
 from .models import Faq, BusinessType, Job, Contract
 from .forms import contract_form
@@ -29,12 +29,13 @@ def company_jobs(request, id):
 
 def contact(request):
     if request.method == 'POST':
-
         form = contract_form(request.POST)
         if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
             form.save()
-
-    return render(request, 'contract.html',{'form':contract_form})
+    return render(request, 'contact.html',{'form':contract_form})
 
 
 def faq(request):

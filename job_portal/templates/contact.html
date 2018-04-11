@@ -1,47 +1,12 @@
 {% extends 'base.html' %}
 
-{% block head %}
-    <title>Contact</title>
-{% endblock %}
+{% block content %}
 
-
-
-{% block body %}
-        <div class="container">
-            <form method="post"  id="contact_form">
-
-
-<!-- Form Name -->
-<h1>Contact Us</h1>
-
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="name">Name : </label>
-  <input  name="first_name" placeholder="First Name" type="text">
-</div>
-
-<!-- Text input-->
-       <div class="form-group">
-  <label class="email">E-Mail</label>
-  <input name="email" placeholder="E-Mail Address" type="text">
-</div>
-
-
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="phone">Phone #</label>
-  <input name="phone" placeholder="(845)555-1212" type="text">
-</div>
-
-<!-- Button -->
-<div class="form-group">
-  <label class="submit"></label>
-    <button type="submit">Send</button>
-  </div>
+<h1>Contact</h1>
+<form role="form" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
 </form>
-    </div><!-- /.container -->
 
 {% endblock %}
-

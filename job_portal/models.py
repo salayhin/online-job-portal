@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from datetime import datetime
-
+from django.utils import timezone
 
 class BusinessType(models.Model):
     type = models.CharField(max_length=200)
