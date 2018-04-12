@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 
 from .models import Faq, BusinessType, Job, Contract
-from .forms import contract_form
+from .forms import contract_form,employee_form
 import pdb
 
 
@@ -45,4 +45,19 @@ def faq(request):
 
 def about(request):
     return render(request,'about.html')
+
+def employee(request):
+    if request.method == 'POST':
+        form = employee_form(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            fathers_name = form.cleaned_data['fathers_name']
+            mothers_name = form.cleaned_data['mothers_name']
+            present_address = form.cleaned_data['present_address']
+            form.save()
+
+    else:
+        form = employee_form()
+
+    return render(request, 'employee.html',{'form':employee_form})
 
