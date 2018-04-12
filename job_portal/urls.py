@@ -14,6 +14,7 @@ urlpatterns = [
     path('employee_job/',views.employee_job,name='employee_job'),
     path('companies/<id>/', views.companies, name='companies'),
     path('company_jobs/<id>/', views.company_jobs, name='company_jobs'),
+    path('signup/', views.signup, name='signup'),
 ]
 
 urlpatterns += [

@@ -1,5 +1,11 @@
 from django import forms
+<<<<<<< HEAD
 from .models import Contract,Employee,EmployeeExperience,EmployeeEducation,EmployeeJob
+=======
+from .models import Contract, Employee
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+>>>>>>> 2af50fc5b64dfe4ef8a23043f7fc94e1a64ae697
 
 class ContractForm(forms.ModelForm):
     class Meta:
@@ -34,6 +40,7 @@ class EmployeeForm(forms.ModelForm):
         ]
 
 
+<<<<<<< HEAD
 class EmployeeEducationForm(forms.ModelForm):
     class Meta:
         model=EmployeeEducation
@@ -70,3 +77,13 @@ class EmployeeJobForm(forms.ModelForm):
             'expected_salary',
             'cover_letter'
         ]
+=======
+class SignUpForm(UserCreationForm):
+    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
+    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
+    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
+>>>>>>> 2af50fc5b64dfe4ef8a23043f7fc94e1a64ae697

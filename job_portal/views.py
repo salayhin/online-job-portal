@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
+from django.contrib.auth import login, authenticate
 
 from .models import Faq, BusinessType, Job, Contract
+<<<<<<< HEAD
 from .forms import ContractForm,EmployeeForm,EmployeeEducationForm,EmployeeExperinenceForm,EmployeeJobForm
+=======
+from .forms import ContractForm,EmployeeForm, SignUpForm
+
+>>>>>>> 2af50fc5b64dfe4ef8a23043f7fc94e1a64ae697
 import pdb
 
 
@@ -62,6 +68,7 @@ def employee(request):
     return render(request, 'employee.html',{'form':EmployeeForm})
 
 
+<<<<<<< HEAD
 def employee_education(request):
     if request.method == 'POST':
         form = EmployeeEducationForm(request.POST)
@@ -95,3 +102,18 @@ def employee_job(request):
         form = EmployeeJobForm()
 
     return render(request, 'employee_job.html',{'form':EmployeeJobForm})
+=======
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = SignUpForm()
+    return render(request, 'registration/signup.html', {'form': form})
+>>>>>>> 2af50fc5b64dfe4ef8a23043f7fc94e1a64ae697
