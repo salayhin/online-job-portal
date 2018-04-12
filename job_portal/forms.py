@@ -1,7 +1,7 @@
 from django import forms
 from .models import Contract,Employee
 
-class contract_form(forms.ModelForm):
+class ContractForm(forms.ModelForm):
     class Meta:
         model=Contract
         fields = [
@@ -11,7 +11,7 @@ class contract_form(forms.ModelForm):
             'comment'
         ]
 
-class employee_form(forms.ModelForm):
+class EmployeeForm(forms.ModelForm):
     class Meta:
         model=Employee
         fields = [
@@ -31,6 +31,4 @@ class employee_form(forms.ModelForm):
             'religion',
             'sex',
             'marital_status',
-            'created_at',
-            'updated_at'
         ]
