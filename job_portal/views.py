@@ -7,8 +7,13 @@ from django.contrib.auth import login, authenticate
 from .models import Faq, BusinessType, Job, Contract
 from .forms import ContractForm,EmployeeForm,EmployeeEducationForm,EmployeeExperinenceForm,EmployeeJobForm
 from .forms import ContractForm,EmployeeForm, SignUpForm
+
 import pdb
 
+from django.contrib.auth.decorators import login_required
+
+
+import pdb
 
 def home(request):
     business_types = BusinessType.objects.all()
@@ -48,6 +53,7 @@ def faq(request):
 def about(request):
     return render(request,'about.html')
 
+@login_required
 def employee(request):
     if request.method == 'POST':
         form = EmployeeForm(request.POST)
@@ -63,7 +69,7 @@ def employee(request):
 
     return render(request, 'employee.html',{'form':EmployeeForm})
 
-
+@login_required
 def employee_education(request):
     if request.method == 'POST':
         form = EmployeeEducationForm(request.POST)
@@ -75,7 +81,7 @@ def employee_education(request):
 
     return render(request, 'employee_education.html',{'form':EmployeeEducationForm})
 
-
+@login_required
 def employee_experience(request):
     if request.method == 'POST':
         form = EmployeeExperinenceForm(request.POST)
@@ -87,6 +93,7 @@ def employee_experience(request):
 
     return render(request, 'employee_experience.html',{'form':EmployeeExperinenceForm})
 
+@login_required
 def employee_job(request):
     if request.method == 'POST':
         form = EmployeeJobForm(request.POST)
