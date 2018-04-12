@@ -6,9 +6,10 @@ from django.contrib.auth import login, authenticate
 
 from .models import Faq, BusinessType, Job, Contract
 from .forms import ContractForm,EmployeeForm, SignUpForm
+from django.contrib.auth.decorators import login_required
+
 
 import pdb
-
 
 def home(request):
     business_types = BusinessType.objects.all()
@@ -48,6 +49,7 @@ def faq(request):
 def about(request):
     return render(request,'about.html')
 
+@login_required
 def employee(request):
     if request.method == 'POST':
         form = EmployeeForm(request.POST)
