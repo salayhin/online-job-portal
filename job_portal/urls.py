@@ -11,6 +11,7 @@ urlpatterns = [
     path('employee/',views.employee,name='employee'),
     path('companies/<id>/', views.companies, name='companies'),
     path('company_jobs/<id>/', views.company_jobs, name='company_jobs'),
+    path('signup/', views.signup, name='signup'),
 ]
 
 urlpatterns += [

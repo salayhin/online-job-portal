@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
+from django.contrib.auth import login, authenticate
 
 from .models import Faq, BusinessType, Job, Contract
-from .forms import ContractForm,EmployeeForm
+from .forms import ContractForm,EmployeeForm, SignUpForm
+
 import pdb
 
 
@@ -61,3 +63,17 @@ def employee(request):
 
     return render(request, 'employee.html',{'form':EmployeeForm})
 
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = SignUpForm()
+    return render(request, 'registration/signup.html', {'form': form})
