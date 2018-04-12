@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 
 from .models import Faq, BusinessType, Job, Contract
-from .forms import ContractForm,EmployeeForm
+from .forms import ContractForm,EmployeeForm,EmployeeEducationForm,EmployeeExperinenceForm,EmployeeJobForm
 import pdb
 
 
@@ -61,3 +61,37 @@ def employee(request):
 
     return render(request, 'employee.html',{'form':EmployeeForm})
 
+
+def employee_education(request):
+    if request.method == 'POST':
+        form = EmployeeEducationForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    else:
+        form = EmployeeEducationForm()
+
+    return render(request, 'employee_education.html',{'form':EmployeeEducationForm})
+
+
+def employee_experience(request):
+    if request.method == 'POST':
+        form = EmployeeExperinenceForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    else:
+        form = EmployeeExperinenceForm()
+
+    return render(request, 'employee_experience.html',{'form':EmployeeExperinenceForm})
+
+def employee_job(request):
+    if request.method == 'POST':
+        form = EmployeeJobForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    else:
+        form = EmployeeJobForm()
+
+    return render(request, 'employee_job.html',{'form':EmployeeJobForm})

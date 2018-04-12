@@ -129,3 +129,11 @@ class EmployeeExperience(models.Model):
     def __str__(self):
         return self.job_title
 
+class EmployeeJob(models.Model):
+    job = models.ForeignKey(Job, on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    expected_salary = models.IntegerField()
+    cover_letter = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+

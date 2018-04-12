@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contract,Employee
+from .models import Contract,Employee,EmployeeExperience,EmployeeEducation,EmployeeJob
 
 class ContractForm(forms.ModelForm):
     class Meta:
@@ -31,4 +31,42 @@ class EmployeeForm(forms.ModelForm):
             'religion',
             'sex',
             'marital_status',
+        ]
+
+
+class EmployeeEducationForm(forms.ModelForm):
+    class Meta:
+        model=EmployeeEducation
+        fields = [
+            'employee',
+            'exam',
+            'session',
+            'passing_year',
+            'result',
+            'board',
+            'university',
+            'subject'
+
+        ]
+
+
+class EmployeeExperinenceForm(forms.ModelForm):
+    class Meta:
+        model = EmployeeExperience
+        fields = [
+            'emp_education',
+            'job_title',
+            'company_name',
+            'start_date',
+            'end_date'
+        ]
+
+class EmployeeJobForm(forms.ModelForm):
+    class Meta:
+        model = EmployeeJob
+        fields = [
+            'job',
+            'employee',
+            'expected_salary',
+            'cover_letter'
         ]
