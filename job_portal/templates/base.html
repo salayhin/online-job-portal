@@ -20,10 +20,9 @@
                 <li role="presentation"><a href="/contact">Contact</a></li>
                 <li role="presentation">
                     {% if user.is_authenticated %}
-                        Hi {{ user.username }}!
-                        <p><a href="{% url 'logout' %}">logout</a></p>
+
+                        <a href="{% url 'logout' %}">Hi {{ user.username }}! | Logout</a>
                     {% else %}
-                        <p>You are not logged in</p>
                         <a href="{% url 'login' %}">login</a>
                     {% endif %}
                 </li>
