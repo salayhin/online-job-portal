@@ -78,6 +78,7 @@ class Faq(models.Model):
 
 
 class Employee(models.Model):
+    user_id=models.IntegerField(default=None)
     name=models.CharField(max_length=200)
     fathers_name=models.CharField(max_length=150)
     mothers_name=models.CharField(max_length=150)
@@ -94,6 +95,7 @@ class Employee(models.Model):
     religion=models.CharField(max_length=20)
     sex=models.CharField(max_length=10)
     marital_status=models.CharField(max_length=15)
+    hobby=models.CharField(max_length=250, default=None)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
