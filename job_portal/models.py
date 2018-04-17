@@ -3,7 +3,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 from datetime import datetime
-from django.utils import timezone
+#from django.utils import timezone
+from django.contrib.auth.models import User
 
 class BusinessType(models.Model):
     type = models.CharField(max_length=200)
@@ -78,13 +79,16 @@ class Faq(models.Model):
 
 
 class Employee(models.Model):
-    user_id=models.IntegerField(default=None)
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
     name=models.CharField(max_length=200)
     fathers_name=models.CharField(max_length=150)
     mothers_name=models.CharField(max_length=150)
     present_address=models.TextField()
     permanent_address=models.TextField()
-    picture=models.CharField(max_length=500)
+    birthdate = models.DateField()
+    height = models.ImageField()
+    width = models.ImageField()
+    picture=models.ImageField(null='False', blank='False', height_field='height', width_field='width')
     gender=models.CharField(max_length=10)
     age=models.IntegerField()
     phone=models.CharField(max_length=25)
@@ -138,4 +142,6 @@ class EmployeeJob(models.Model):
     cover_letter = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+
 

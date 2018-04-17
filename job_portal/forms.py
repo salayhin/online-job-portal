@@ -19,11 +19,13 @@ class EmployeeForm(forms.ModelForm):
     class Meta:
         model=Employee
         fields = [
+            'user',
             'name',
             'fathers_name',
             'mothers_name',
             'present_address',
             'permanent_address',
+            'birthdate',
             'picture',
             'gender',
             'age',
@@ -33,7 +35,7 @@ class EmployeeForm(forms.ModelForm):
             'national_id',
             'skills',
             'religion',
-            'sex',
+            'hobby',
             'marital_status',
         ]
 
