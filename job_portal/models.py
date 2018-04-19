@@ -97,9 +97,6 @@ class Employee(models.Model):
     sex=models.CharField(max_length=10)
     marital_status=models.CharField(max_length=15)
     hobby=models.CharField(max_length=250, default=None)
-    height = models.IntegerField(default=0)
-    width = models.IntegerField(default=0)
-    picture = models.ImageField(null=False, blank=True, height_field='height', width_field='width')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
