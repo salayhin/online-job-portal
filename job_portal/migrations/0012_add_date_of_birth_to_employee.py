@@ -7,7 +7,7 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('job_portal', '0012_auto_20180419_1658'),
+        ('job_portal', '0011_auto_20180419_1658'),
     ]
 
     operations = [

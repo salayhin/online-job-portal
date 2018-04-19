@@ -14,10 +14,5 @@ class Migration(migrations.Migration):
             model_name='employee',
             name='hobby',
             field=models.CharField(default=None, max_length=250),
-        ),
-        migrations.AddField(
-            model_name='employee',
-            name='user_id',
-            field=models.IntegerField(default=None),
-        ),
+        )
     ]

@@ -6,14 +6,11 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('job_portal', '0011_auto_20180417_1112'),
+        ('job_portal', '0010_add_user_id_to_emplyee'),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='employee',
-            name='picture',
-        ),
+
         migrations.AlterField(
             model_name='company',
             name='email',

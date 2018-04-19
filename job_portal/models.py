@@ -79,7 +79,7 @@ class Faq(models.Model):
 
 
 class Employee(models.Model):
-    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    user=models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     name=models.CharField(max_length=200)
     fathers_name=models.CharField(max_length=150)
     mothers_name=models.CharField(max_length=150)
