@@ -25,8 +25,6 @@ class EmployeeForm(forms.ModelForm):
             'mothers_name',
             'present_address',
             'permanent_address',
-            'birthdate',
-            'picture',
             'gender',
             'age',
             'phone',
