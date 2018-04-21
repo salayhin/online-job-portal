@@ -103,7 +103,7 @@ def employee_job(request):
     else:
         form = EmployeeJobForm()
 
-    return render(request, 'employee_job.html',{'form':EmployeeJobForm})
+    return render(request, 'apply.html',{'form':EmployeeJobForm})
 
 def signup(request):
     if request.method == 'POST':

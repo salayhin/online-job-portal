@@ -34,7 +34,7 @@ body {
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 900px;
   }
 }
 .container-narrow > hr {
@@ -76,4 +76,7 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+.text-muted img{
+height:120px;
 }
